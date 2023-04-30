@@ -14,8 +14,6 @@ public class LogInTest {
     LogIn login = new LogIn();
     public LogInTest() {}
 
-    
-
     @Test
     public void testReturnLoginStatus() {
        String expected = "Welcome Kyle Modise, it is great to see you again.";
