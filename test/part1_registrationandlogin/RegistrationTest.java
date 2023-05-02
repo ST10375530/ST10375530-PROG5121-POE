@@ -5,7 +5,10 @@
 package part1_registrationandlogin;
 
 import org.junit.Test;
-import static org.junit.Assert.*;
+import junit.framework.Assert;
+import static org.junit.jupiter.api.Assertions.assertTrue; 
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  *
@@ -15,18 +18,27 @@ public class RegistrationTest {
     Registration registration = new Registration() ;
 
     @Test
+    public void testCheckUserName() {
+       boolean actual = registration.CheckUserName("Kyle!!!!!!");
+       Assert.assertFalse("Username is not correctly formatted, please ensure that your username contains an underscore and is no more than 5 characters in length.", actual);
+       Assert.assertFalse("False", actual);   
+    }
+    
+    @Test
+    public void testCheckPasswordComplexity() {
+       boolean actual2 = registration.CheckPasswordComplexity("Ch&&sec@ke99!");
+       Assert.assertTrue("Password successfully captured", actual2);
+       Assert.assertTrue("True", actual2);
+       
+       boolean actual3 = registration.CheckPasswordComplexity( "Password");
+       Assert.assertFalse("Password is not correctly formatted, please ensure that the password contains at least 8 characters, a capital letter, a number and a special character.", actual3);
+       Assert.assertFalse("False", actual3); 
+    }
+    @Test
     public void testRegisterUser() {
-        String expected = "Username is not correctly formatted, please ensure that your username contains an underscore and is no more than 5 characters in length.";
-       String actual = registration.registerUser("kyle!!!!!!!", "Ch&&sec@ke99!");
-        assertEquals(expected, actual); 
-        
-        String expected2 = "Password is not correctly formatted, please ensure that the password contains at least 8 characters, a capital letter, a number and a special character.";
-        String actual2 = registration.registerUser("kyl_1", "Password");
-        assertEquals(expected2, actual2);
-        
-        String expected3 = "Username and Password successfully captured";
-        String actual3 = registration.registerUser("kyl_1", "Ch&&sec@ke99!");
-        assertEquals(expected3, actual3);
+        String expected = "Username and Password successfully captured";
+        String actual = registration.registerUser("kyl_1", "Ch&&sec@ke99!");
+        Assert.assertEquals("True", expected, actual);
     }
     
 }
