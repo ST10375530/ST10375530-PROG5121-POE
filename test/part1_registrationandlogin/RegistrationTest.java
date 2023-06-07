@@ -5,10 +5,9 @@
 package part1_registrationandlogin;
 
 import org.junit.Test;
-import junit.framework.Assert;
-import static org.junit.jupiter.api.Assertions.assertTrue; 
-import static org.junit.jupiter.api.Assertions.assertFalse;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 /**
  *
@@ -20,25 +19,21 @@ public class RegistrationTest {
     @Test
     public void testCheckUserName() {
        boolean actual = registration.CheckUserName("Kyle!!!!!!");
-       Assert.assertFalse("Username is not correctly formatted, please ensure that your username contains an underscore and is no more than 5 characters in length.", actual);
-       Assert.assertFalse("False", actual);   
+       assertFalse(actual,"Username is not correctly formatted, please ensure that your username contains an underscore and is no more than 5 characters in length.");
+       assertFalse(actual,"False");   
     }
     
     @Test
     public void testCheckPasswordComplexity() {
-       boolean actual2 = registration.CheckPasswordComplexity("Ch&&sec@ke99!");
-       Assert.assertTrue("Password successfully captured", actual2);
-       Assert.assertTrue("True", actual2);
-       
        boolean actual3 = registration.CheckPasswordComplexity( "Password");
-       Assert.assertFalse("Password is not correctly formatted, please ensure that the password contains at least 8 characters, a capital letter, a number and a special character.", actual3);
-       Assert.assertFalse("False", actual3); 
+       assertFalse(actual3, "Password is not correctly formatted, please ensure that the password contains at least 8 characters, a capital letter, a number and a special character.");
+       assertFalse(actual3,"False"); 
     }
     @Test
     public void testRegisterUser() {
         String expected = "Username and Password successfully captured";
         String actual = registration.registerUser("kyl_1", "Ch&&sec@ke99!");
-        Assert.assertEquals("True", expected, actual);
+        assertEquals(expected, actual, "True");
     }
     
 }

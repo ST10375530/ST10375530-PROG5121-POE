@@ -29,8 +29,8 @@ public class LogIn {
        
   
     //This method returns the messaging for a successful message and a failed message.
-    public String returnLoginStatus(String LogInUsername, String LogInPassword) {
-        if (loginUser("kyl_1", "Ch&&sec@ke99!")) {
+    public String returnLoginStatus(String username, String password) {
+        if (loginUser(username,password )) {
             return "Welcome " + firstName + " " + lastName + ", it is great to see you again.";
         } else {
             return "Username or password incorrect, please try again.";
