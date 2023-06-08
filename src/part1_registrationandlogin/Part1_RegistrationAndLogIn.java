@@ -23,7 +23,7 @@ public class Part1_RegistrationAndLogIn {
         
         //Declare the variables
         String username, password, firstName, lastName;
-        String taskName="", taskDescription="", developerDetails="", taskStatus="", taskID="" ;
+        String taskName="", taskDescription="", developerFirstName="", developerLastName = "", taskStatus="", taskID="" ;
         int taskNumber = 0, taskDuration = 0, numTasks;
         int RegOrLogin;
         int choice = 0, taskCount = 0, totalHours = 0;
@@ -52,24 +52,23 @@ public class Part1_RegistrationAndLogIn {
                     
                    if (taskInput == 1){
                        numTasks = Integer.parseInt(JOptionPane.showInputDialog("How many tasks do you wish to enter?"));
-                       for (int i = 0; i < numTasks; i++) {
-                            taskName = JOptionPane.showInputDialog("Enter the task name:");
-                            taskDescription = JOptionPane.showInputDialog(null, "Enter the task description:");
+                       for ( taskNumber = 0; taskNumber < numTasks; taskNumber++) {
+                            taskName = JOptionPane.showInputDialog("Please enter the task name:");
+                            taskDescription = JOptionPane.showInputDialog(null, "Please enter the task description:");
                             JOptionPane.showMessageDialog(null, tasksDetails.DisplayDescription(taskDescription));
                             
-                            developerDetails = JOptionPane.showInputDialog(null, "Enter the Developer's Details (FirstName and LastName:");
-                            taskDuration = Integer.parseInt(JOptionPane.showInputDialog("Enter the task duration in hours:"));
-                            taskID = tasksDetails.createTaskID();
-                            taskStatus = JOptionPane.showInputDialog(null, "Enter Task Status: (To Do/ Done/ Doing):");
-                            JOptionPane.showMessageDialog(null, tasksDetails.createTaskID());
-                            taskNumber = i;
-                            
+                            developerFirstName = JOptionPane.showInputDialog(null, "Please enter the Developer's FirstName:");
+                            developerLastName = JOptionPane.showInputDialog(null, "Please enter the Developer's LastName:");
+                            taskDuration = Integer.parseInt(JOptionPane.showInputDialog("Please enter the task duration in hours:"));
+                            taskStatus = JOptionPane.showInputDialog(null, "Please enter Task Status: (To Do/ Done/ Doing):");
+                            taskID = taskName.substring(0, 2).toUpperCase() + ":" + taskNumber + ":" + developerFirstName.substring(developerFirstName.length() - 3).toUpperCase();    
+                            JOptionPane.showMessageDialog(null, tasksDetails.createTaskID(taskID));
                        }
-                       JOptionPane.showMessageDialog(null, tasksDetails.printTaskDetails(taskStatus, developerDetails, taskNumber, taskName, taskDescription, taskID, taskDuration));
+                       JOptionPane.showMessageDialog(null, tasksDetails.printTaskDetails(taskStatus, developerFirstName, developerLastName, taskNumber, taskName, taskDescription, taskID, taskDuration));
                    }else if (taskInput == 2) {
                         JOptionPane.showMessageDialog(null, "Coming Soon");
                     } else if (taskInput == 3) {
-                        JOptionPane.showMessageDialog(null,"Invalid option chosen, please try again.");
+                        break;
                     }
                 }
                 
@@ -96,24 +95,22 @@ public class Part1_RegistrationAndLogIn {
                     
                    if (taskInput == 1){
                        numTasks = Integer.parseInt(JOptionPane.showInputDialog("How many tasks do you wish to enter?"));
-                       for (int i = 0; i < numTasks; i++) {
-                            taskName = JOptionPane.showInputDialog("Enter the task name:");
-                            taskDescription = JOptionPane.showInputDialog(null, "Enter the task description:");
+                       for (taskNumber = 0; taskNumber < numTasks; taskNumber++) {
+                            taskName = JOptionPane.showInputDialog("Please enter the task name:");
+                            taskDescription = JOptionPane.showInputDialog(null, "Please enter the task description:");
                             JOptionPane.showMessageDialog(null, tasksDetails.DisplayDescription(taskDescription));
                             
-                            developerDetails = JOptionPane.showInputDialog(null, "Enter the Developer's Details (FirstName and LastName:");
-                            taskDuration = Integer.parseInt(JOptionPane.showInputDialog("Enter the task duration in hours:"));
-                            taskID = tasksDetails.createTaskID();
-                            taskStatus = JOptionPane.showInputDialog(null, "Enter Task Status: (To Do/ Done/ Doing):");
-                            JOptionPane.showMessageDialog(null, tasksDetails.createTaskID());
-                            taskNumber = numTasks;
-                            
+                            developerFirstName = JOptionPane.showInputDialog(null, "Please enter the Developer's FirstName:");
+                            developerLastName = JOptionPane.showInputDialog(null, "Please eneter the Developer's LastName:");
+                            taskDuration = Integer.parseInt(JOptionPane.showInputDialog("Please enter the task duration in hours:"));
+                            taskStatus = JOptionPane.showInputDialog(null, "Please enter the Task Status: (To Do/ Done/ Doing):");
+                            JOptionPane.showMessageDialog(null, tasksDetails.createTaskID(taskID));
                        }
-                       JOptionPane.showMessageDialog(null, tasksDetails.printTaskDetails(taskStatus, developerDetails, taskNumber, taskName, taskDescription, taskID, taskDuration));
+                       JOptionPane.showMessageDialog(null, tasksDetails.printTaskDetails(taskStatus, developerFirstName, developerLastName, taskNumber, taskName, taskDescription, taskID, taskDuration));
                    }else if (taskInput == 2) {
                         JOptionPane.showMessageDialog(null, "Coming Soon");
                     } else if (taskInput == 3) {
-                        JOptionPane.showMessageDialog(null,"Invalid option chosen, please try again.");
+                        break;
                     }
                 } 
                 break;

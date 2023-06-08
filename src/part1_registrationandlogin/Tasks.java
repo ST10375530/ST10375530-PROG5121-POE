@@ -9,7 +9,7 @@ package part1_registrationandlogin;
  * @author lab_services_student
  */
 public class Tasks {
-    private String taskName, taskDescription, developerDetails, taskStatus, taskID;
+    private String taskName, taskDescription, developerFirstName, developerLastName, taskStatus, taskID;
     private  int taskNumber;
     private int taskDuration;
     
@@ -17,9 +17,10 @@ public class Tasks {
         taskName = "";
         taskNumber = taskNumber++;
         taskDescription = taskDescription;
-        developerDetails = developerDetails;
+        developerFirstName = developerFirstName;
+        developerLastName = developerLastName;
         taskDuration = taskDuration;
-        taskID = createTaskID();
+        taskID = createTaskID(taskID);
         taskStatus = "";
 }
 
@@ -36,20 +37,20 @@ public class Tasks {
         }
     }
     
-    public String createTaskID() {
+    public String createTaskID(String taskID) {
         if (taskName.length() >= 2){
-        taskID = taskName.substring(0, 2).toUpperCase() + ":" + taskNumber + ":" + developerDetails.substring(developerDetails.length() - 3).toUpperCase();
+        taskID = taskName.substring(0, 2).toUpperCase() + ":" + taskNumber + ":" + developerFirstName.substring(developerFirstName.length() - 3).toUpperCase();
         }
         return taskID;    
     }
     
-    public String printTaskDetails(String taskStatus, String developerDetails, int taskNumber, String taskName, String taskDescription, String taskID, int taskDuration) {
-        return "Task Status: " + taskStatus + "\nDeveloper Details: " + developerDetails +
+    public String printTaskDetails(String taskStatus, String developerFirstName, String  developerLastName, int taskNumber, String taskName, String taskDescription, String taskID, int taskDuration) {
+        return "Task Status: " + taskStatus + "\nDeveloper Details: " + developerFirstName + " " + developerLastName +
         "\nTask Number: " + taskNumber + "\nTask Name: " + taskName + "\nTask Description: " + taskDescription +
-        "\nTask ID: " + createTaskID() + "\nTask Duration: " + taskDuration + " hours";
+        "\nTask ID: " + createTaskID(taskID) + "\nTask Duration: " + taskDuration + " hours";
     }
     
-    public int returnTotalHours() {
+    public int returnTotalHours(int taskDuration) {
         return taskDuration;
     }
 
