@@ -1,13 +1,15 @@
 # This is a basic workflow that is manually triggered
+
 name: TestPROGPOE
 
 # Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the main branch
+  # Triggers the workflow on push or pull request events but only for the master branch
   push:
     branches: [ main ]
   pull_request:
     branches: [ main ]
+
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
@@ -20,40 +22,40 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - name: Checkout repository
-        uses: actions/checkout@v2
-
-      # List contents of the directory
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+      
+       # list contents or directory
       - name: List contents
         run: ls
-
-      # Compiles classes to test
-      - name: Compile classes
+     # Compiles classes to test 
+      - name: compile classes
         working-directory: ./src/PROG5121_POE
-        run: javac -cp "../../testresources/junit-platform-console-standalone-1.8.2.jar" Prog5121_poe.java LogIn.java Registration.java Tasks.java ../../test/PROG5121_POE/LogInTest.java ../../test/PROG5121_POE/RegistrationTest.java ../../test/PROG5121_POE/TasksTest.java
+        run: javac -cp "../../testresources/junit-platform-console-standalone-1.8.2.jar" Prog5121_poe.java LogIn.java Registration.java Tasks.java"../../test/PROG5121_POE/LogInTest.java" "../../test/PROG5121_POE/RegistrationTest.java" "../../test/PROG5121_POE/TasksTest.java"
 
-      # List contents of src to verify that classes compiled
+
+    # list contents of src to verify that classess compiled 
       - name: List contents of src directory after compile
         working-directory: ./src/PROG5121_POE
         run: ls
-
-      # Copy compiled classes to test directory
-      - name: Copy compiled classes to testresources directory
+        
+        
+       # copy compiled classes to test directory 
+      - name : copy compiled classes to testresources directory 
         working-directory: ./src/PROG5121_POE
-        run: cp -t ../../test/PROG5121_POE Prog5121_poe.class LogIn.class Registration.class Tasks.class
+        run: cp -t  "../../test/PROG5121_POE" Prog5121_poe.class LogIn.class Registration.class Tasks.class
 
-      # Copy compiled tests
-      - name: Copy compiled Test classes to testresources directory
+        #copy compiled tests 
+      - name : copy compiled Test classes to testresources directory 
         working-directory: ./test/PROG5121_POE
-        run: cp -t ../../testresources/ LogInTest.class RegistrationTest.class TasksTest.class
-
-      # List contents of test package
+        run: cp -t  "../../testresources/" LogInTest.class RegistrationTest.class TasksTest.class
+        
+        # list contents or directory
       - name: List contents test package
         working-directory: ./test/PROG5121_POE
         run: ls
-
-      # Run tests and output report
-      - name: Run tests and create report
+        
+        #run tests and output report 
+      - name: run tests and create report 
         working-directory: ./test
-        run: java -cp "../testresources/junit-platform-suite-commons-1.8.2.jar:../testresources/junit-platform-suite-api-1.8.2.jar:../testresources/junit-platform-suite-engine-1.8.2.jar:../testresources/junit-jupiter-engine-5.8.2.jar:../testresources/junit-platform-console-standalone-1.8.2.jar:." org.junit.platform.console.ConsoleLauncher --select-class TasksTest --reports-dir "reports"
+        run: java  "../testresources/junit-platform-suite-commons-1.8.2.jar:../testresources/junit-platform-suite-api-1.8.2.jar:../testresources/junit-platform-suite-engine-1.8.2:../testresources/juniorg.junit.platform.console.ConsoleLauncher " -cp "./prog5121poe" --select-class TaskTest  --reports-dir ="reports"
