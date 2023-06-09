@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package part1_registrationandlogin;
+package PRLD5121_POE;
 
 /**
  *
@@ -20,7 +20,7 @@ public class Tasks {
         developerFirstName = developerFirstName;
         developerLastName = developerLastName;
         taskDuration = taskDuration;
-        taskID = createTaskID(taskID);
+        taskID = taskID;
         taskStatus = "";
 }
 
@@ -47,7 +47,7 @@ public class Tasks {
     public String printTaskDetails(String taskStatus, String developerFirstName, String  developerLastName, int taskNumber, String taskName, String taskDescription, String taskID, int taskDuration) {
         return "Task Status: " + taskStatus + "\nDeveloper Details: " + developerFirstName + " " + developerLastName +
         "\nTask Number: " + taskNumber + "\nTask Name: " + taskName + "\nTask Description: " + taskDescription +
-        "\nTask ID: " + createTaskID(taskID) + "\nTask Duration: " + taskDuration + " hours";
+        "\nTask ID: " + createTaskID(taskID) + "\nTask Duration: " + taskDuration + " hours"; //(baeldung, 2023)
     }
     
     public int returnTotalHours(int taskDuration) {
@@ -56,3 +56,9 @@ public class Tasks {
 
 
 }
+
+/* Reference List:
+   Baeldung. 2023. Adding a Newline Character to a String in Java. [Online]. Available at: https://www.baeldung.com/java-string-newline#:~:text=Adding%20a%20new%20line%20in,the%20end%20of%20our%20string. [Accessed 06 June 2023].
+   Farrell, J. 2017. Java Programming. Ninth Edition. Boston: Cengage Learning.
+
+*/

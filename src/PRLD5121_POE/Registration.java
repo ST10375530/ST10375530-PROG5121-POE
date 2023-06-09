@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package part1_registrationandlogin;
+package PRLD5121_POE;
 
 /**
  *
@@ -44,9 +44,6 @@ public class Registration {
     }
 }
 //Reference List: 
-/* Farrell, J. 2018. Java Programming. Ninth Edition. Boston: Cengage Learning  
-
-  sandhya6gczb.2021. How to use pattern to validate Password, Java. [Online]
-  Avaiable at: https://www.studytonight.com/html-faq/how-to-use-pattern-to-validate-password
- [Accessed 23 April 2023]
+/* Farrell, J. 2017. Java Programming. Ninth Edition. Boston: Cengage Learning.  
+   sandhya6gczb.2021. How to use pattern to validate Password, Java. [Online]. Avaiable at: https://www.studytonight.com/html-faq/how-to-use-pattern-to-validate-password [Accessed 23 April 2023]
 */

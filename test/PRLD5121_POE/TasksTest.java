@@ -2,9 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/UnitTests/JUnit4TestClass.java to edit this template
  */
-package part1_registrationandlogin;
+package PRLD5121_POE;
 
 
+import PRLD5121_POE.Tasks;
 import static org.junit.jupiter.api.Assertions.assertEquals; 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import org.junit.Test;
@@ -47,10 +48,14 @@ public class TasksTest {
 
     @Test
     public void testReturnTotalHours() {
-      /*  int actual = tasks.returnTotalHours(8);
-        if (actual < 8 || actual > 8) {
-            assertFalse(actual, "Total hours incorrectly accumulated");
-        }*/
+        int expected = 8;
+        int actual = tasks.returnTotalHours(8);
+        assertEquals(expected, actual, "Total hours incorrectly accumulated");
+        
+        int expected2 = 10;
+        int actual2 = tasks.returnTotalHours(10);
+        assertEquals(expected2, actual2, "Total hours incorrectly accumulated");
+        }
     }
     
-}
+
