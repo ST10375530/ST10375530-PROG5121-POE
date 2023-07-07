@@ -2,9 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/UnitTests/JUnit4TestClass.java to edit this template
  */
-package PRLD5121_POE;
+package PROG5121_POE;
 
-import PRLD5121_POE.Registration;
+import PROG5121_POE.Registration;
 import org.junit.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

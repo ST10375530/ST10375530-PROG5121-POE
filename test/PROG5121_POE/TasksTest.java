@@ -2,10 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/UnitTests/JUnit4TestClass.java to edit this template
  */
-package PRLD5121_POE;
+package PROG5121_POE;
 
 
-import PRLD5121_POE.Tasks;
+import PROG5121_POE.Tasks;
 import static org.junit.jupiter.api.Assertions.assertEquals; 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import org.junit.Test;
@@ -50,11 +50,11 @@ public class TasksTest {
     public void testReturnTotalHours() {
         int expected = 8;
         int actual = tasks.returnTotalHours(8);
-        assertEquals(expected, actual, "Total hours incorrectly accumulated");
+        assertEquals(expected, actual, "Total hours correctly accumulated");
         
         int expected2 = 10;
         int actual2 = tasks.returnTotalHours(10);
-        assertEquals(expected2, actual2, "Total hours incorrectly accumulated");
+        assertEquals(expected2, actual2, "Total hours correctly accumulated");
         }
     }
     
